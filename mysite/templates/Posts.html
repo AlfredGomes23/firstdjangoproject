@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts Page</title>
+</head>
+<body>
+<h2>This is Posts Page</h2>
+<button><a href="{%url 'home'%}">Home</a></button>
+<button><a href="{%url 'new-home'%}">New Home</a></button>
+<button><a href="{%url 'products'%}">Products</a></button>
+
+<h3>Posts: <span><button><a href="{%url 'add-post'%}">Add Post</a></button></span></h3>
+<br>
+
+{% for post in posts %}
+    Tittle: {{ post.title }}
+<br>
+Post: {{ post.text }}
+<br>
+Actions:
+<button><a href="{%url 'update-post' post.id%}">Update</a></button>
+<button><a href="{%url 'delete-post' post.id%}">Delete</a></button>
+<br>
+<br>
+{% endfor %}
+
+</body>
+</html>
