@@ -9,25 +9,27 @@
 <body>
 
 <div class="container" id="container">
-<!--	login form-->
+<!--	signup form-->
 	<div class="form-container sign-up-container">
-		<form action="POST">
+		<form method="POST" action="{% url 'dsignup' %}">
 			<h1>Create Account</h1>
+			{% csrf_token %}
 			<input type="text" placeholder="User Name" name="username"/>
 			<input type="email" placeholder="Email" name="email" />
 			<input type="password" placeholder="Password" name="password1"/>
 			<input type="password" placeholder="Confirm Password" name="password2"/>
-			<input type="submit" value="Sign Up" class="submit">
+			<button type="submit" class="submit">Sign Up</button>
 		</form>
 	</div>
-<!--	signup form-->
+<!--	login form-->
 	<div class="form-container sign-in-container">
-		<form action="POST">
+		<form method="POST" action="{% url 'dlogin' %}">
 			<h1>Log in</h1>
+			{% csrf_token %}
 			<input type="text" placeholder="User Name" name="username" />
 			<input type="password" placeholder="Password" name="password"/>
 			<a href="#">Forgot your password?</a>
-			<input type="submit" value="Login" class="submit">
+			<button type="submit" class="submit">Login</button>
 		</form>
 	</div>
 <!--	form switcher-->
@@ -46,15 +48,6 @@
 		</div>
 	</div>
 </div>
-
-<!--<footer>-->
-<!--	<p>-->
-<!--		Created with <i class="fa fa-heart"></i> by-->
-<!--		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>-->
-<!--		- Read how I created this and how you can join the challenge-->
-<!--		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.-->
-<!--	</p>-->
-<!--</footer>-->
 <!--js file-->
 <script src="{% static 'DJS.js' %}"></script>
 </body>
