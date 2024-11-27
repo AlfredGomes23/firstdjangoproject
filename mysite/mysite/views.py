@@ -13,9 +13,3 @@ def newhome(request):
     return render(request, "newhome.html")
 
 
-@login_required(login_url='login')
-def products(request):
-    products = Product.objects.all()
-    return render(request, "products.html", {
-        "products": products
-    })
